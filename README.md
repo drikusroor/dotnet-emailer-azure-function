@@ -21,6 +21,7 @@ Configure the following `SMTP_` variables in your `local.settings.json` file (wi
     "SMTP_SERVER": "your_smtp_server",
     "SMTP_PORT": "587",
     "SMTP_SSL": "true",
+    "SMTP_FROM": "your_name",
     "SMTP_USERNAME": "your_username",
     "SMTP_PASSWORD": "your_password"
   }

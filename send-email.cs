@@ -25,7 +25,12 @@ namespace Ainab.Function
             EmailData data = JsonConvert.DeserializeObject<EmailData>(requestBody);
 
             var emailMessage = new MimeMessage();
-            emailMessage.From.Add(new MailboxAddress("Your Name", Environment.GetEnvironmentVariable("SMTP_USERNAME")));
+            emailMessage.From.Add(
+                new MailboxAddress(
+                    Environment.GetEnvironmentVariable("SMTP_FROM"),
+                    Environment.GetEnvironmentVariable("SMTP_USERNAME")
+                )
+            );
             emailMessage.To.Add(new MailboxAddress("", data.To));
             emailMessage.Subject = data.Subject;
             emailMessage.Body = new TextPart("plain") { Text = data.Body };
